@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A simple library build for streaming in strictly object mode",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "transpile": "tsc -p .",
     "lint": "tslint ts/*.ts",
