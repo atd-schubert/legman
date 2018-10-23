@@ -1,0 +1,45 @@
+{
+  "name": "legman",
+  "version": "1.0.0",
+  "description": "A simple library build for streaming in strictly object mode",
+  "main": "lib/index.js",
+  "scripts": {
+    "transpile": "tsc -p .",
+    "lint": "tslint ts/*.ts",
+    "test": "npm run lint && npm run transpile && istanbul cover _mocha -- -- test/*.js",
+    "leakage": "npm run transpile && LEAKAGE_TEST=1 mocha",
+    "publishOnly": "npm run test",
+    "docker:lint": "docker-compose build --pull lint && docker-compose run --rm lint",
+    "docker:test": "docker-compose build --pull test && docker-compose run --rm test",
+    "docker:leakage": "docker-compose build --pull leakage && docker-compose run --rm leakage"
+  },
+  "author": "Arne Schubert",
+  "license": "ISC",
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atd-schubert/legman.git"
+  },
+  "keywords": [
+    "stream",
+    "object-mode"
+  ],
+  "bugs": {
+    "url": "https://github.com/atd-schubert/legman/issues"
+  },
+  "homepage": "https://github.com/atd-schubert/legman#readme",
+  "devDependencies": {
+    "@types/chai": "^4.1.6",
+    "@types/leakage": "^0.4.0",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.11.5",
+    "@types/node-memwatch": "^1.0.0",
+    "chai": "^4.2.0",
+    "istanbul": "^0.4.5",
+    "leakage": "^0.4.0",
+    "mocha": "^5.2.0",
+    "tslint": "^5.11.0",
+    "tslint-immutable": "^4.8.0",
+    "typescript": "^3.1.1"
+  }
+}
