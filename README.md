@@ -127,8 +127,8 @@ on the `baseLeg`.
 ```
 
 With sloppy-mode set to true, your resulting stream will not be able to handle back-pressure, but it has a weak
-connection to the base Legman and will prevent leaking memory. It is perfect for streams without a high frequency and no
-easy to determine end. For example for logs.
+connection to the base Legman and will prevent leaking memory when the `end` or `unpipe` method is never called. It is
+perfect for streams without a high frequency and no easy to determine end. For example for logs.
 
 ### map
 
